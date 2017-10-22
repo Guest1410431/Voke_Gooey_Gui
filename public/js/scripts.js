@@ -9,16 +9,6 @@ $(document).ready(function(){
         $('.chat-popdown').hide(300);
         $('#chat-bot').hide(300);
     });
-    $('.chat-input-submit').on('click', function(){
-        var message = $('.chat-input-field').val();
-        
-        if(message.length > 0){
-            addChatMessage(message, true);
-            addChatMessage("Generic Response", false);
-        }
-        $('.chat-input-field').val("");
-        scrollContent();
-    });
     $('.chat-input-field').keydown(function(event){
        var keycode = (event.keyCode ? event.keyCode : event.which);
 	   
@@ -29,7 +19,6 @@ $(document).ready(function(){
                 addChatMessage(message, true);
                 addChatMessage("Generic Response", false);
             }
-            $('.chat-input-field').val("");
             scrollContent();
 	   }
     });

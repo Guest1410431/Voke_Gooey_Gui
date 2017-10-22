@@ -31,12 +31,12 @@
         </div>
         <div class="row chat-message">
             <div class="col-md-12">
-                <div class="input-group">
-                    <input type="text" class="form-control chat-input-field" placeholder="Message">
+                <form class="input-group" action="/sendMessage" method="post">
+                    <input type="text" class="form-control chat-input-field" placeholder="Message" name="message">
                       <span class="input-group-btn">
-                        <button class="btn btn-default chat-input-submit" type="button"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                        <button class="btn btn-default chat-input-submit" type="submit"><span class="glyphicon glyphicon-chevron-right"></span></button>
                       </span>
-                    </div>
+                    </form>
               </div>
         </div>
     </div>

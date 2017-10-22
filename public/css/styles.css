@@ -147,24 +147,6 @@ a {
         margin-top:10px;
     }
 }
-/* Tablet cutoff styling */
-@media screen and (min-width:768) {
-    #chat-bot{
-        
-    }
-    #chat-scroll-area{
-        
-    }
-    .chat-header{
-        
-    }
-    .chat-header-title{
-        
-    }
-    .chat-header-exit{
-        
-    }
-}
 /* Phone cutoff styling */
 @media screen and (max-width:767px) {
     #chat-bot{
@@ -174,10 +156,11 @@ a {
         right:0px;
     }
     #chat-scroll-area{
-        height: 500px;
+        max-height: 445px;
     }
     .chat-header-exit{
-        
+        right: -90%;
+        top: -40px; 
     }
 }
 
