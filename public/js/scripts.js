@@ -140,6 +140,3 @@ function getTagId(nameInputed){
 function getEmbededVideo(videoURL){
     return '<iframe width="150" height="100" src='+ videoURL.replace("watch?v=", "embed/") +' frameborder="0" allowfullscreen></iframe>';
 }
-
-
-

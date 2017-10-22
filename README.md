@@ -1,12 +1,8 @@
-#GMF-HOA-Website
+Chat Widget Implementation of the Voke app
 
-TODO: 
-  - Login/Logout partial
-  - Login session handling 
-  - Contact submission page
-  - Database for login information
-  - Pemissions and administration page
-  
-  - Reformatting on smaller screens
-  
-[Website](http://ec2-52-91-42-232.compute-1.amazonaws.com/)
+npm install  
+node server.js  
+
+http://localhost:8080  
+
+<3  
