@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 <% include partials/_layout.ejs %>
@@ -48,3 +49,55 @@
 
 
 
+=======
+<!doctype html>
+<html lang="en">
+<% include partials/_layout.ejs %>
+<body>
+    <div class="chat-popup">
+        <img class="chat-popup" id="popup_gif" src="img/voke_popup_base.gif" alt="">
+    </div>
+    <div class="chat-popdown" hidden>
+        <img class="chat-popdown" src="img/voke_popdown.png" alt="">
+    </div>
+	<div id="chat-bot" hidden>
+        <div class="row chat-header">
+            <div class="col-md-8">
+                <h3 class="chat-header-title">Chat Name</h3>
+            </div>
+            <div class="col-md-4 chat-exit">
+                <span class="glyphicon glyphicon-remove chat-header-exit"></span>
+            </div>
+        </div>
+        <div class="row chat-field">
+            <div class="pre-scrollable" id="chat-scroll-area">
+                <!--Chat goes here-->    
+                <table class="chat-result-table">
+                    <tbody>
+                        <tr>
+                            <td id="result"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row chat-message">
+            <div class="col-md-12">
+                <form class="input-group" action="/sendMessage" method="post">
+                    <input type="text" class="form-control chat-input-field" placeholder="Message" name="message">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default chat-input-submit" type="submit"><span class="glyphicon glyphicon-chevron-right"></span></button>
+                      </span>
+                    </form>
+              </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+>>>>>>> fc7fd629c97d3d4f68d3e8465a0fb2b792954f50
