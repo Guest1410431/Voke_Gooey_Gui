@@ -90,9 +90,11 @@ function getBotResponse(input){
                     getTagId(tag);
                 }
                 else if(data.result.parameters.organization.length > 0){
-                    
+                    var org = data.result.parameters.organization;
+                    getVideoFromOrg(org);
                 }
                 else if(data.result.parameters.item.length > 0){
+                    var item = data.result.parameters.item;
 
                 }        
 
@@ -168,4 +170,63 @@ function getTagId(nameInputed){
         }
     });
 
+}
+
+function getOrgVideo(orgID){
+    $.ajax({
+        type: "GET",
+        url: "https://api-stage.vokeapp.com/api/manager/v1/organizations/:organization_id/items",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + "58098d33482e25580301c04271347713c98699daeeb9d91f32d5299e13f0f697"
+        },
+        data: {  
+            organization_id: orgID
+        },
+        success: function(data){
+                console.log(data);
+                vidList = data;       
+                addChatMessage(getEmbededVideo(vidList.items[0].media.url),false);
+        },
+        error: function(xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                console.log(err);
+                console.log(status);
+                console.log(error);
+            }
+    });
+}
+
+function getVideoFromOrg(org){
+    $.ajax({
+        type: "GET",
+        url: "https://api-stage.vokeapp.com/api/manager/v1/organizations",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        headers: {
+            "Authorization": "Bearer " + "58098d33482e25580301c04271347713c98699daeeb9d91f32d5299e13f0f697"
+        },
+        success: function(data){
+            var orgList = data.organizations;
+            //console.log(data.organizations);
+            console.log(data);
+            for(var i=0; i<orgList.length; i++){
+                if(orgList[i].name === org){
+                    console.log("found");
+                    getOrgVideo(orgList[i].id);
+                    return;
+                }
+            }
+
+
+            return -1;
+        },
+        error: function(xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                console.log(err);
+                console.log(status);
+                console.log(error);
+        }
+    });
 }
