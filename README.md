@@ -1,12 +1,11 @@
-#GMF-HOA-Website
+To run:
 
-TODO: 
-  - Login/Logout partial
-  - Login session handling 
-  - Contact submission page
-  - Database for login information
-  - Pemissions and administration page
-  
-  - Reformatting on smaller screens
-  
-[Website](http://ec2-52-91-42-232.compute-1.amazonaws.com/)
+Download
+npm install
+npm install node
+npm install express
+npm install ejs
+
+node server.js
+
+http://localhost:8080
