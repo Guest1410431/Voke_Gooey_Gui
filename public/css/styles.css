@@ -21,8 +21,8 @@ a {
 .chat-popup,
 .chat-popdown,
 #popup_gif{
-    width: 64px;
-    height: 64px;
+    width: 66px;
+    height: 51px;
     bottom: 25px;
     right: 50px;
     position: fixed;
