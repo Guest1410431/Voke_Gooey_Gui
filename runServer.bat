@@ -1,7 +1,7 @@
 npm install
-npm install express
 npm install ejs
+npm install express
 npm install express-validator
-npm install r
+npm install node-rest-client
 
-Node server.js
+node server.js
