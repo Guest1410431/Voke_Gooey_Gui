@@ -14,11 +14,62 @@ $(document).ready(function(){
 	   
         if(keycode == '13'){
             var message = $('.chat-input-field').val();
-        
             if(message.length > 0){
                 addChatMessage(message, true);
-                addChatMessage("Generic Response", false);
             }
+
+            var accessToken = "c687bc93a2734abcacecf4fa5fa2f0ba";
+            var baseUrl = "https://api.api.ai/api/";
+
+            var botAns = "";
+            var vidList = [];
+
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "query?v=20150910",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                headers: {
+                    "Authorization": "Bearer " + accessToken
+                },
+                data: JSON.stringify({ query: message, lang: "en", sessionId: "somerandomthing" }),
+                success: function(data) {
+                    botAns = data.result.fulfillment.speech;
+                    var tag = data.result.parameters.tag;
+                    console.log(data.result);
+                    $.ajax({
+                        type: "GET",
+                        url: "https://api-stage.vokeapp.com/api/messenger/v1/items",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        headers: {
+                            "Authorization": "Bearer " + "58098d33482e25580301c04271347713c98699daeeb9d91f32d5299e13f0f697"
+                        },
+                        data: {  
+                            tag_id: tag
+                        },
+                        success: function(data){
+                            vidList = data;
+                            console.log(vidList);
+                        },
+                        error: function(xhr, status, error) {
+                                var err = eval("(" + xhr.responseText + ")");
+                                console.log(err);
+                                console.log(status);
+                                console.log(error);
+                        }
+                    });
+                    console.log(botAns);
+                    
+                    addChatMessage(botAns, false);
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err);
+                    console.log(status);
+                    console.log(error);
+                }
+            });           
             scrollContent();
 	   }
     });
