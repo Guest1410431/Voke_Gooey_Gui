@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "email-node",
-=======
-  "name": "Gooey GUI",
->>>>>>> fc7fd629c97d3d4f68d3e8465a0fb2b792954f50
   "version": "1.0.0",
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -11,25 +7,14 @@
     "express": "^3.21.2",
     "express-validator": "^4.2.1",
     "formidable": "^1.1.1",
-<<<<<<< HEAD
     "nodemailer": "latest"
-=======
-    "node-rest-client": "latest"
->>>>>>> fc7fd629c97d3d4f68d3e8465a0fb2b792954f50
   },
   "scripts": {
     "start": "node server.js"
   },
-<<<<<<< HEAD
   "description": "Sends email form via Node.js",
   "main": "server.js",
   "devDependencies": {},
   "author": "Gues",
-=======
-  "description": "Does Stuff",
-  "main": "server.js",
-  "devDependencies": {},
-  "author": "That One Guy",
->>>>>>> fc7fd629c97d3d4f68d3e8465a0fb2b792954f50
   "license": "ISC"
 }
