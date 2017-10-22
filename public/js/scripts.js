@@ -21,7 +21,6 @@ $(document).ready(function(){
             getBotResponse(message);
                     
             $('.chat-input-field').val('');
-            scrollContent();
        }
     });
     $('#popup_gif').hover(function(){
@@ -52,6 +51,8 @@ function addChatMessage(message, userInput){
     chat.innerHTML = message;
     
     chatField.append(chat);
+    
+    scrollContent();
 }
 function scrollContent(){
     $("#chat-scroll-area").animate({
@@ -60,7 +61,22 @@ function scrollContent(){
 }
 
 function getEmbededVideo(videoURL){
-    return '<iframe width="150" height="100" src='+ videoURL.replace("watch?v=", "embed/") +' frameborder="0" allowfullscreen></iframe>';
+    var embededURL = "";
+    
+    if(videoURL.indexOf('youtube') != -1){
+        videoURL = videoURL.replace("watch?v=", "embed/");
+        embededURL = '<iframe width="150" height="100" src='+ videoURL +' frameborder="0" allowfullscreen></iframe>';
+    }
+    else if(videoURL.indexOf('vimeo') != -1){
+        videoURL = videoURL.replace("https://www.", "http://player.");
+        videoURL = videoURL.replace("vimeo.com", "vimeo.com/video");
+        console.log("Video URL: " + videoURL);
+        embededURL = '<iframe width="150" height="100" src='+ videoURL +' frameborder="0" allowfullscreen></iframe>';
+    }
+    else{
+        console.log("Error: unrecognized video hosting site. Not youtube or vimeo");
+    }
+    return embededURL;
 }
 
 function getBotResponse(input){
