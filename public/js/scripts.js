@@ -17,7 +17,6 @@ $(document).ready(function(){
             if(message.length > 0){
                 addChatMessage(message, true);
             }
-
             getBotResponse(message);
                     
             $('.chat-input-field').val('');
@@ -34,7 +33,6 @@ $(document).ready(function(){
             $('#popup_gif').attr('src', 'img/voke_popup_final.gif');
         }
     }, function(){
-        
     });
 });
 function addChatMessage(message, userInput){
@@ -48,11 +46,11 @@ function addChatMessage(message, userInput){
     else{
         chat.setAttribute('class', 'server-response');
     }
+    $(chat).hide();
     chat.innerHTML = message;
-    
     chatField.append(chat);
-    
     scrollContent();
+    $(chat).show(300);
 }
 function scrollContent(){
     $("#chat-scroll-area").animate({
@@ -112,11 +110,8 @@ function getBotResponse(input){
                 else if(data.result.parameters.item.length > 0){
                     var item = data.result.parameters.item;
 
-                }        
-
-                
-            }
-            
+                } 
+            }           
             addChatMessage(botAns, false);
         },
         error: function(xhr, status, error) {
@@ -174,8 +169,6 @@ function getTagId(nameInputed){
                     return;
                 }
             }
-
-
             return -1;
         },
         error: function(xhr, status, error) {
@@ -185,7 +178,6 @@ function getTagId(nameInputed){
                 console.log(error);
         }
     });
-
 }
 
 function getOrgVideo(orgID){
@@ -234,8 +226,6 @@ function getVideoFromOrg(org){
                     return;
                 }
             }
-
-
             return -1;
         },
         error: function(xhr, status, error) {
